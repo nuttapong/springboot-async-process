@@ -1,10 +1,12 @@
 package com.example.async.service;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 import java.util.concurrent.CompletableFuture;
 
+@Slf4j
 @Service
 public class IoTService {
 
@@ -20,6 +22,7 @@ public class IoTService {
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
         }
+        log.info("Device {}, Temperature:{}", deviceId, temperature);
         return CompletableFuture.completedFuture(temperature);
     }
 

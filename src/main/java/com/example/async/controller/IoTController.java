@@ -26,7 +26,6 @@ public class IoTController {
         CompletableFuture<Double> deviceTemperature = ioTService.fetchTemperatureFromDevice(deviceName, delayInSec);
         double temperature = deviceTemperature.get();
         String msg = deviceName +" Temperature:" + temperature + "°C";
-        System.out.println(msg);
         return ResponseEntity.ok(msg);
     }
 
